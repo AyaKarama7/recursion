@@ -1,0 +1,12 @@
+Recursion=subproblem with smaller costraints from problem with bigger constraints
+datatybe rec_name(parametres)
+{
+  base case;
+  return case;
+}
+example:factorial
+int factorial(int n)
+{
+   if(n==1)return 1;//base case
+   return factorial(n-1)*n;//return case
+}
