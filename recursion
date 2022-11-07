@@ -10,3 +10,20 @@ int factorial(int n)
    if(n==1)return 1;//base case
    return factorial(n-1)*n;//return case
 }
+//n=6=f(5)*6=fac(4)*5*6...بعدين الفانكشن بتتنفز من الاخر 
+*we have 2 cases:
+-we call the function inside it self يعني بنادي الفانكشن جوا نفسها و بتتنفز بالترتيب
+void print(int n)//6 3 10 5
+{
+    if(n==1)return;
+    cout<<n<<' ';//6 3 10 
+    if(n%2==0)print(n/2);//3 
+    else print(n*3+1);
+}
+-بننادي كل الفانكشنز من الاول للاخر بعدين تتنفز من الاخر وكل فانكشن ترجع القيمه للي قبلها
+int factorial(int n)
+{
+   if(n==1)return 1;//base case
+   return factorial(n-1)*n;//return case
+}
+
