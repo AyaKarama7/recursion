@@ -40,3 +40,27 @@ int fepo(int n)//O(2^n)//
 }
 *you can represent recursive function as a tree of nodes and get the answer ordered from first recursive function
 *f(n) = f(n+1) + f(n-1)    ⇒  equivalent to ⇒  f(n+1) = f(n) - f(n-1)
+*******************************************************************************************************************
+1-print forward:
+void print(int n)
+{
+    if(n==0)return;
+    print(n-1);
+    cout<<n<<'\n';
+}
+-print backward:
+void print(int n)
+{
+    if(n==0)return;
+    if(n==1)cout<<n;
+    else cout<<n<<' ';
+    return print(n-1);
+}
+****************************************************************************************************************
+2-print max:
+int Max(int n,vector<int>&v)
+{
+    if(n==1)return v[0];
+    int subp=Max(n-1,v);
+    return max(subp,v[n-1]);
+}
