@@ -26,4 +26,17 @@ int factorial(int n)
    if(n==1)return 1;//base case
    return factorial(n-1)*n;//return case
 }
-
+-order:
+n=5
+base-->build-->recall--->5 4 3 2 1 || build-->base--->recall
+base-->recall->build---->1 2 3 4 5
+*feponacci:
+int fepo(int n)//O(2^n)
+{
+    if(n==0)return 0;//base
+    if(n==1)return 1;//base 
+    return fepo(n-1)+fepo(n-2);//recall
+    //builld in main
+}
+*you can represent recursive function as a tree of nodes and get the answer ordered from first recursive function
+*f(n) = f(n+1) + f(n-1)    ⇒  equivalent to ⇒  f(n+1) = f(n) - f(n-1)
