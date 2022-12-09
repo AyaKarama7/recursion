@@ -31,7 +31,7 @@ n=5
 base-->build-->recall--->5 4 3 2 1 || build-->base--->recall
 base-->recall->build---->1 2 3 4 5
 *feponacci:
-int fepo(int n)//O(2^n)
+int fepo(int n)//O(2^n)//
 {
     if(n==0)return 0;//base
     if(n==1)return 1;//base 
