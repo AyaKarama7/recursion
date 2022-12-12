@@ -1,4 +1,5 @@
 Recursion=subproblem with smaller costraints from problem with bigger constraints
+تنفيز المهام بالتزامن او التوازي
 datatybe rec_name(parametres)
 {
   base case;
