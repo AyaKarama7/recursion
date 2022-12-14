@@ -1,4 +1,8 @@
 Recursion=subproblem with smaller costraints from problem with bigger constraints
+-It's better to use global variables or vectors with recursive functions because:
+  =local data size is bigger than global
+  =vector data is in the heap not in the stack
+ -you can make your stack:see dr.moustafa files
 https://raw.githubusercontent.com/mostafa-saad/ArabicCompetitiveProgramming/master/15%20C%2B%2B%20Programming%204%20Competitions/42%20C%2B%2B%20Programming%204%20Competitions%20-%20Recursion.cpp
 تنفيز المهام بالتزامن او التوازي
 datatybe rec_name(parametres)
@@ -65,4 +69,69 @@ int Max(int n,vector<int>&v)
     if(n==1)return v[0];
     int subp=Max(n-1,v);
     return max(subp,v[n-1]);
+}
+****************************************************************************************************************
+void floodFill(int r,int c,char ch)
+{
+    if(r<0||c<0||r>=n||c>=m||v[r][c]!=ch||vis[r][c]==1)return;
+    vis[r][c]=1;
+    cnt++;
+    floodFill(r,c-1,ch);
+    floodFill(r,c+1,ch);
+    floodFill(r-1,c,ch);
+    floodFill(r+1,c,ch);
+}
+int comps()
+{
+    int comp=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            char c=v[i][j];
+            cnt=0;
+            floodFill(i,j,c);
+            if(cnt>0)comp++;
+        }
+    }
+    return comp;
+}
+void genBinary(int len,string cur="")
+{
+    if(len==0)
+    {
+        cout<<cur<<' ';
+        return;
+    }
+    genBinary(len-1,cur+'0');
+    genBinary(len-1,cur+'1');
+}
+void perm(int i,int n,vector<bool>&vis,vector<int>&cur)
+{
+    if(i==n)
+    {
+        for(int j=0;j<n;j++)cout<<cur[j]<<' ';//0 1 2 
+        cout<<'\n';
+        return;
+    }
+    for(int j=0;j<n;j++)if(!vis[j])//0 1 2 
+    {
+        vis[j]=1;
+        cur[i]=j;//0:0   //1:1  //2:2 
+        perm(i+1,n,vis,cur);
+        vis[j]=0;
+    }
+}
+void comp(int i,int n,int m,int curl,vector<int>&cur)
+{
+    if(curl==m)//0 1 2 
+    {
+        for(int j=0;j<m;j++)cout<<cur[j]<<' ';
+        cout<<'\n';
+        return;
+    }
+    if(i==n)return;
+    cur[curl]=i;//0:0 1:1  //0:1 1:2  //0:1 
+    comp(i+1,n,m,curl+1,vis,cur);
+    comp(i+1,n,m,curl,cur);
 }
