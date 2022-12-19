@@ -1,0 +1,16 @@
+ * pseudocode
+ *
+ * Backtracking(state)
+ * 		if invalid(state)	//e.g. we reached a # or the location is already visited
+ * 			return
+ *
+ * 		if found_solution(state)
+ * 			mark_solution_found
+ * 			return
+ *
+ * 		for each child_state of state
+ * 			state' = do changes in state
+ *
+ * 			Backtracking(state')
+ *
+ * 			state = undo changes in state'
